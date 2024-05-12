@@ -44,15 +44,13 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 ### Contributors
 
-<style>
-  img {
-    border-radius: 50%;
-  }
-</style>
+
 
 <a href="https://github.com/hanu7348" target="_blank">
   <img src="https://avatars.githubusercontent.com/hanu7348" alt="Hanumanthu" width="50">
 </a>
+
+
 
 ## License
 
