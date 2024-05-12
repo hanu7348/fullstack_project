@@ -34,7 +34,7 @@ This Django application provides a registration page for student enrollment with
 3. Install the required dependencies: `pip install -r requirements.txt`
 4. Run the Django development server: `python manage.py runserver`
 
-Now you can access the applications by visiting the appropriate URLs in your web browser (e.g., `http://127.0.0.1:8000/` for the Current Date and Time Application).
+Now you can access the applications by visiting the appropriate URLs in your web browser (e.g., `http://127.0.0.1:8000/` for the Home Page).
 
 Please note that some applications may require additional setup or configuration, such as creating a database and running migrations. Refer to the application-specific documentation for more details.
 
