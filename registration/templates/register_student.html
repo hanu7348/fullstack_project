@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Registration</h1>
+        <form id="student-form" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="response"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#student-form').on('submit', function(e) {
+                e.preventDefault();
+                var formData = $(this).serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "student" %}',
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            $('#response').html('<div class="alert alert-success">Student registered successfully.</div>');
+                            $('#student-form')[0].reset();
+                        } else {
+                            $('#response').html('<div class="alert alert-danger">An error occurred. Please try again.</div>');
+                        }
+                    },
+                    error: function(xhr, errmsg, err) {
+                        $('#response').html('<div class="alert alert-danger">An error occurred: ' + xhr.status + ' ' + xhr.responseText + '</div>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block extra_css %}
+    <!-- Include Bootstrap CSS from CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center">About Us</h1>
+            <p class="text-center">We are a company that provides awesome products and services.</p>
+        </div>
+    </div>
+    
+    <!-- Service Images -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-3 text-center">
+            <img src="/static/images/1.webp" alt="Service 1" class="img-fluid">
+            <p>Web Development</p>
+        </div>
+        <div class="col-md-3 text-center">
+            <img src="/static/images/2.jpeg" alt="Service 2" class="img-fluid">
+            <p>Boost Your Skill With ChatGPT</p>
+        </div>
+        <!-- Add more service images here -->
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+    <!-- Include Bootstrap JS from CDN (Optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

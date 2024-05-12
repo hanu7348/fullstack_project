@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1 class="mt-5">Courses</h1>
+  <ul class="list-group mt-3">
+    {% for course in courses %}
+    <li class="list-group-item">
+      <a href="{% url 'student_list' course.id %}">{{ course.name }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <h1 class="mt-5 my-5">Projects</h1>
+  <ul class="list-group mt-3">
+    {% for project in projects %}
+    <li class="list-group-item">
+      <a href="{% url 'project_student_list' project.id %}">{{ project.topic }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <h1 class="mt-5 my-5">Students</h1>
+  <ul class="list-group mt-3">
+    {% for student in students %}
+    <li class="list-group-item">
+        <a href="{% url 'student_detail' student.pk %}">{{ student.first_name }} {{ student.last_name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+
+  
+  
+  
+  <a class="btn btn-primary mt-3" href="{% url 'register_student' %}">Register Student</a>
+  <a class="btn btn-success mt-3" href="{% url 'register_course' %}">Register Course</a>
+  <a class="btn btn-primary mt-3" href="{% url 'register_project' %}">Register Project</a>
+{% endblock %}

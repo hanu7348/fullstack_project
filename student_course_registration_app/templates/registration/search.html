@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Students</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        });
+
+        $(document).ready(function() {
+            $('#search-input').on('input', function() {
+                var query = $(this).val();
+                $.ajax({
+                    url: '{% url "search_students" %}',
+                    data: {
+                        'query': query
+                    },
+                    success: function(data) {
+                        var results = data.results;
+                        var html = '';
+                        if (results.length > 0) {
+                            html += '<ul class="list-group">';
+                            for (var i = 0; i < results.length; i++) {
+                                var student = results[i];
+                                html += '<li class="list-group-item">';
+                                html += '<h5>' + student.name + '</h5>';
+                                html += '<p><strong>Email:</strong> ' + student.email + '</p>';
+                                html += '<p><strong>Courses:</strong> ' + student.courses.join(', ') + '</p>';
+                                html += '</li>';
+                            }
+                            html += '</ul>';
+                        } else {
+                            html += '<p>No students found.</p>';
+                        }
+                        $('#search-results').html(html);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    {% csrf_token %}
+    <div class="container">
+        <h1>Search Students</h1>
+        <input type="text" id="search-input" class="form-control" placeholder="Search for a student...">
+        <div id="search-results"></div>
+    </div>
+</body>
+</html>

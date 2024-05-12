@@ -1,0 +1,16 @@
+<!-- project_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5">Project Details</h1>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ project.name }}</h5>
+            <p class="card-text">Topic: {{ project.topic }}</p>
+            <p class="card-text">Languages Used: {{ project.languages_used }}</p>
+            <p class="card-text">Duration: {{ project.duration }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
