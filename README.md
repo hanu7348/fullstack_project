@@ -42,6 +42,18 @@ Please note that some applications may require additional setup or configuration
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
+### Contributors
+
+<style>
+  img {
+    border-radius: 50%;
+  }
+</style>
+
+<a href="https://github.com/hanu7348" target="_blank">
+  <img src="https://avatars.githubusercontent.com/hanu7348" alt="Hanumanthu" width="50">
+</a>
+
 ## License
 
 This project is licensed under the [Search Creators](https://searchcreators.org/).
